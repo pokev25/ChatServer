@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zepinos.chat.server.Service.LoginService;
 import com.zepinos.chat.server.Service.MessageService;
-import com.zepinos.chat.server.Service.RoomService;
-import com.zepinos.chat.server.Service.SendService;
 import io.netty.channel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -27,11 +25,6 @@ public class JsonHandler extends SimpleChannelInboundHandler<String> {
 	private MessageService messageService;
 	@Autowired
 	private LoginService loginService;
-	@Autowired
-	private SendService sendService;
-	@Autowired
-	private RoomService roomService;
-
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
 

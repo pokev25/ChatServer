@@ -156,6 +156,7 @@ public class RoomService {
 	 * @param result  전송할 데이터
 	 * @throws Exception 예외
 	 */
+	@SuppressWarnings("unchecked")
 	public void send(Channel channel,
 	                 String method,
 	                 Map<String, Object> data,
