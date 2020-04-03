@@ -2,6 +2,7 @@ package com.zepinos.chat.server.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zepinos.chat.server.Domain.Repository.UserRepository;
+import com.zepinos.chat.server.Domain.User;
 import com.zepinos.chat.server.Repository.ChannelIdUserIdRepository;
 import com.zepinos.chat.server.Repository.UserIdChannelRepository;
 import io.netty.channel.Channel;
@@ -40,7 +41,8 @@ public class SendService {
 
 		result.put("method", method);
 		result.put("userId", userId);
-		result.put("userName", userRepository.findOne(userId).getUserName());
+		User user = userRepository.findById(userId).orElse(null);
+		result.put("userName", user.getUserName());
 		result.put("content", data.get("content"));
 
 		String resultMessage = objectMapper.writeValueAsString(result);

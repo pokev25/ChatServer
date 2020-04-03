@@ -11,10 +11,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ChatServerApplication implements CommandLineRunner {
 
-	@Autowired
+	final
 	NettyServer nettyServer;
-	@Autowired
-	private UserRepository userRepository;
+	private final UserRepository userRepository;
+
+	public ChatServerApplication(NettyServer nettyServer, UserRepository userRepository) {
+		this.nettyServer = nettyServer;
+		this.userRepository = userRepository;
+	}
 
 	/**
 	 * 채팅 서버 프로그램 시작 지점입니다. Spring Boot 의 시작점이기도 합니다.

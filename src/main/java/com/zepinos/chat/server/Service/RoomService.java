@@ -171,7 +171,7 @@ public class RoomService {
 
 		}
 
-		User user = userRepository.findOne(userId);
+		User user = userRepository.findById(userId).orElse(null);
 
 		if (user == null) messageService.returnMessage(channel, result, new Exception("사용자 정보를 조회할 수 없습니다.."), "1009");
 
